@@ -46,4 +46,16 @@ describe("parseInput", () => {
     };
     assert.deepEqual(actualOutput, expOut);
   });
+
+  it("should return an object with options array with word element and file name in files options as multiple args", () => {
+    let actualOutput = parseInput(["-c", "-w", "file"]);
+    let expOut = { options: ["word", "character"], files: ["file"] };
+    assert.deepEqual(actualOutput, expOut);
+  });
+
+  it("should return an object with options array with word element and file name in files options as multiple args", () => {
+    let actualOutput = parseInput(["-l", "-c", "-w", "file"]);
+    let expOut = { options: ["line", "word", "character"], files: ["file"] };
+    assert.deepEqual(actualOutput, expOut);
+  });
 });

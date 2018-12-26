@@ -19,4 +19,7 @@
 
 *     node ./wc.js file1 file2
     write code for handling multiple files
+
+*   handle cases of giving options as seperate arguments
+    create function in parseInput to merge all the seperate functions into one
     

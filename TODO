@@ -10,4 +10,6 @@
 *   node ./wc.js -l file1
 
     write test for linecount of single file.
-    
+    write test for parseInput
+    write parseInput function in parseInput.js
+    modify wc function to accept an object

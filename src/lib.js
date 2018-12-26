@@ -13,12 +13,22 @@ const countCharacters = function(fileContent) {
   return fileContent.split("").length;
 };
 
-const wc = function(filePath, fs) {
+const formatOutput = function(fileCounts, filePath) {
+  return fileCounts.join("\t") + " " + filePath;
+};
+
+const wc = function(wcOptions, fs) {
+  let filePath = wcOptions.files;
   let fileContent = fs.readFileSync(filePath, "utf-8");
-  let noOfLines = countLines(fileContent);
-  let noOfWords = countWords(fileContent);
-  let noOfCharacters = countCharacters(fileContent);
-  return [noOfLines, noOfWords, noOfCharacters].join("\t") + " " + filePath;
+  const optionCounter = {
+    line: countLines,
+    word: countWords,
+    character: countCharacters
+  };
+  let contentCounts = wcOptions.options.map(option =>
+    optionCounter[option](fileContent)
+  );
+  return formatOutput(contentCounts, filePath);
 };
 
 module.exports = {

@@ -31,8 +31,10 @@
 */
 const fs = require("fs");
 const { wc } = require("./src/lib");
+const { parseInput } = require("./src/parseInput");
+
 const main = function() {
-  let filePath = process.argv[2];
-  console.log(wc(filePath, fs));
+  let wcOptions = parseInput(process.argv.slice(2));
+  console.log(wc(wcOptions, fs));
 };
 main();

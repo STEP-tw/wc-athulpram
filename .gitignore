@@ -2,3 +2,4 @@ node_modules
 AppTestData
 .actual_out
 .exp_out
+.nyc_output

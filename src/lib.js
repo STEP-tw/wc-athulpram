@@ -1,5 +1,10 @@
 const sevenSpaces = "       ";
 const sixSpaces = "      ";
+
+const removeMultipleSpaces = function(fileContents) {
+  return splitByNewlineOrSpace(fileContents).filter(x => x);
+};
+
 const countLines = function(fileContent) {
   fileContent = fileContent.trim();
   return fileContent.split("\n").length;
@@ -7,10 +12,14 @@ const countLines = function(fileContent) {
 
 const countWords = function(fileContent) {
   fileContent = fileContent.trim();
+  return removeMultipleSpaces(fileContent).length;
+};
+
+const splitByNewlineOrSpace = function(fileContent) {
   return fileContent
     .split(" ")
     .join("\n")
-    .split("\n").length;
+    .split("\n");
 };
 
 const countCharacters = function(fileContent) {

@@ -5,3 +5,4 @@
     write test for default file case
     Create function wc in lib.js = { whcih will accept a filepath and fs}
     extra fucntions like countLines, countWords and countCharacter
+    handle case of multiple spaces

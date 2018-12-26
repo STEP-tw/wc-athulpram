@@ -1,9 +1,12 @@
 /* 
   Usage:
+  Done
   node ./wc.js file1
   node ./wc.js -l file1
   node ./wc.js -c file1
   node ./wc.js -w file1
+
+
   node ./wc.js file1 file2
   node ./wc.js -lw file1 [file2]...
   node ./wc.js -wl file1 [file2]...

@@ -13,3 +13,10 @@
     write test for parseInput
     write parseInput function in parseInput.js
     modify wc function to accept an object
+
+    modify parseInput to handle multiple arguments and return as an array of options
+    multiple arguments are handled
+
+*     node ./wc.js file1 file2
+    write code for handling multiple files
+    

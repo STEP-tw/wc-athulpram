@@ -31,4 +31,10 @@ describe("parseInput", () => {
     let expOut = { options: ["word", "character"], files: "file" };
     assert.deepEqual(actualOutput, expOut);
   });
+
+  it("should return an object with options array with word element and file name in files", () => {
+    let actualOutput = parseInput(["-lcw", "file"]);
+    let expOut = { options: ["line", "word", "character"], files: "file" };
+    assert.deepEqual(actualOutput, expOut);
+  });
 });

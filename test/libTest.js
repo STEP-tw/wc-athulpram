@@ -14,16 +14,41 @@ const fs = {
 
 describe("wc", () => {
   it("should return number of lines number of words and number of characters and fileName", () => {
-    actualOutput = wc(
+    let actualOutput = wc(
       { options: ["line", "word", "character"], files: "vowels" },
       fs
     );
-    expectedOutput = [4, 5, 9].join("\t") + " vowels";
+    let expectedOutput = [4, 5, 9].join("\t") + " vowels";
     assert.equal(actualOutput, expectedOutput);
   });
 
-  it("should return number of lines number and fileName", () => {
-    actualOutput = wc({ options: ["line"], files: "vowels" }, fs);
+  it("should return number of lines and fileName", () => {
+    let actualOutput = wc({ options: ["line"], files: "vowels" }, fs);
     assert.equal(actualOutput, "4 vowels");
+  });
+
+  it("should return number of words and filename", () => {
+    let actualOutput = wc({ options: ["word"], files: "vowels" }, fs);
+    assert.equal(actualOutput, "5 vowels");
+  });
+
+  it("should return number of characters and filename", () => {
+    let actualOutput = wc({ options: ["character"], files: "vowels" }, fs);
+    assert.equal(actualOutput, "9 vowels");
+  });
+
+  it("should return number of lines,words and filename", () => {
+    let actualOutput = wc({ options: ["line", "word"], files: "vowels" }, fs);
+    let expectedOutput = [4, 5].join("\t") + " vowels";
+    assert.equal(actualOutput, expectedOutput);
+  });
+
+  it("should return number of lines,words and filename", () => {
+    let actualOutput = wc(
+      { options: ["line", "word", "character"], files: "vowels" },
+      fs
+    );
+    let expectedOutput = [4, 5, 9].join("\t") + " vowels";
+    assert.equal(actualOutput, expectedOutput);
   });
 });

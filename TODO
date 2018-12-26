@@ -1,2 +1,7 @@
 * Create project directory structure
 ** Create file lib.js in src and libTest.js in test
+
+*   node ./wc.js file1
+    write test for default file case
+    Create function wc in lib.js = { whcih will accept a filepath and fs}
+    extra fucntions like countLines, countWords and countCharacter

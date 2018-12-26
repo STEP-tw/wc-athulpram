@@ -3,8 +3,7 @@ const removeMultipleSpaces = function(fileContents) {
 };
 
 const countLines = function(fileContent) {
-  fileContent = fileContent.trim();
-  return fileContent.split("\n").length;
+  return fileContent.split("\n").length - 1;
 };
 
 const countWords = function(fileContent) {

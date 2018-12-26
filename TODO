@@ -6,3 +6,8 @@
     Create function wc in lib.js = { whcih will accept a filepath and fs}
     extra fucntions like countLines, countWords and countCharacter
     handle case of multiple spaces
+
+*   node ./wc.js -l file1
+
+    write test for linecount of single file.
+    

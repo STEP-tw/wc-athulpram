@@ -15,7 +15,7 @@ const fs = {
 describe("wc", () => {
   it("should return number of lines number of words and number of characters and fileName", () => {
     actualOutput = wc("vowels", fs);
-    expectedOutput = "       5       5      9 vowels";
+    expectedOutput = [5, 5, 9].join("\t") + " vowels";
     assert.equal(actualOutput, expectedOutput);
   });
 });

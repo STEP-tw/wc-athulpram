@@ -1,6 +1,3 @@
-const sevenSpaces = "       ";
-const sixSpaces = "      ";
-
 const removeMultipleSpaces = function(fileContents) {
   return splitByNewlineOrSpace(fileContents).filter(x => x);
 };
@@ -31,16 +28,7 @@ const wc = function(filePath, fs) {
   let noOfLines = countLines(fileContent);
   let noOfWords = countWords(fileContent);
   let noOfCharacters = countCharacters(fileContent);
-  return (
-    sevenSpaces +
-    noOfLines +
-    sevenSpaces +
-    noOfWords +
-    sixSpaces +
-    noOfCharacters +
-    " " +
-    filePath
-  );
+  return [noOfLines, noOfWords, noOfCharacters].join("\t") + " " + filePath;
 };
 
 module.exports = {

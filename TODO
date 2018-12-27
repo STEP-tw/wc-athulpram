@@ -22,4 +22,6 @@
 
 *   handle cases of giving options as seperate arguments
     create function in parseInput to merge all the seperate functions into one
+
+*   extract formatter funcitons to a seperate library called formatter
     

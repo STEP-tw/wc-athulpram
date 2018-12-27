@@ -1,5 +1,4 @@
 const { getWordList } = require("./utils/string");
-const { singleFileFormatter, multipleFileFormatter } = require("./formatter");
 
 const countLines = function(fileContent) {
   return fileContent.split("\n").length - 1;
@@ -15,13 +14,10 @@ const countCharacters = function(fileContent) {
 };
 
 const wc = function(wcOptions, fs) {
-  let formatter = multipleFileFormatter;
+  let formatter = wcOptions.formatter;
   let fileCounts = wcOptions.files.map(file => {
     return getFileCounts(file, wcOptions.options, fs);
   });
-  if (wcOptions.files.length == 1) {
-    formatter = singleFileFormatter;
-  }
   return formatter(fileCounts);
 };
 

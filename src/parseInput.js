@@ -1,10 +1,15 @@
+const { singleFileFormatter, multipleFileFormatter } = require("./formatter");
 const parseInput = function(args) {
+  wcOptions = { options: ["line", "word", "character"], files: args };
   if (isOption(args[0])) {
     args = mergeOptions(args);
-    return parseWithOptions(args);
+    wcOptions = parseWithOptions(args);
   }
-  let files = args;
-  return { options: ["line", "word", "character"], files };
+  wcOptions.formatter = singleFileFormatter;
+  if (wcOptions.files.length > 1) {
+    wcOptions.formatter = multipleFileFormatter;
+  }
+  return wcOptions;
 };
 
 const isOption = argument => argument.startsWith("-");
@@ -12,10 +17,10 @@ const isOption = argument => argument.startsWith("-");
 const mergeOptions = function(args) {
   let { options, fileNames } = args.reduce(
     ({ options, fileNames }, argument) => {
+      fileNames.push(argument);
       if (isOption(argument)) {
         options += argument.slice(1);
-      } else {
-        fileNames.push(argument);
+        fileNames.pop();
       }
       return { options, fileNames };
     },

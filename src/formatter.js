@@ -20,8 +20,8 @@ const singleFileFormatter = function(fileDetails) {
 };
 
 const addTwoArrays = function(array1, array2) {
-  sumArray = [];
-  for (let index = 0; index < array1.length; index++) {
+  let sumArray = [];
+  for (let index in array1) {
     sumArray[index] = array1[index] + array2[index];
   }
   return sumArray;

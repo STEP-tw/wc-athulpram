@@ -10,7 +10,7 @@ const countWords = function(fileContent) {
 };
 
 const countCharacters = function(fileContent) {
-  return fileContent.split("").length;
+  return fileContent.length;
 };
 
 const wc = function(wcOptions, fs) {

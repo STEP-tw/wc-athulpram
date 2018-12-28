@@ -1,6 +1,7 @@
 const { singleFileFormatter, multipleFileFormatter } = require("./formatter");
+const HYPHEN = "-";
 const parseInput = function(args) {
-  wcOptions = { options: ["line", "word", "character"], files: args };
+  let wcOptions = { options: ["line", "word", "character"], files: args };
   if (isOption(args[0])) {
     args = getMergedOptionsAndFiles(args);
     wcOptions = parseWithOptions(args);
@@ -12,7 +13,7 @@ const parseInput = function(args) {
   return wcOptions;
 };
 
-const isOption = argument => argument.startsWith("-");
+const isOption = argument => argument.startsWith(HYPHEN);
 
 const getMergedOptionsAndFiles = function(args) {
   let options = args.filter(isOption);
@@ -28,7 +29,7 @@ const parseWithOptions = function(args) {
     word: "w",
     character: "c"
   };
-  options = Object.keys(validOptions).filter(x =>
+  let options = Object.keys(validOptions).filter(x =>
     optionsGiven.includes(validOptions[x])
   );
   return { options, files };

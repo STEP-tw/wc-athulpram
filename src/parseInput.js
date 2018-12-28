@@ -16,8 +16,9 @@ const parseInput = function(args) {
 const isOption = argument => argument.startsWith(HYPHEN);
 
 const getMergedOptionsAndFiles = function(args) {
-  let options = args.filter(isOption);
-  let fileNames = args.slice(options.length);
+  let firstFileIndex = args.findIndex(arg => !isOption(arg));
+  let fileNames = args.slice(firstFileIndex);
+  let options = args.slice(0, firstFileIndex);
   return [options.join("")].concat(fileNames);
 };
 
